@@ -1,0 +1,130 @@
+🧭 nook — Agent Build Spec (Copy/Paste)
+🎯 Mission Statement
+
+nook addresses the loneliness epidemic by turning shared intent into shared physical presence, facilitating in-person spaces where people with similar goals can work, create, and grow together in low-pressure environments.
+
+🧠 Product Summary
+
+nook is an in-person coordination platform that matches people based on:
+
+shared interests (writing, studying, coding, fitness, etc.)
+location proximity
+time availability
+
+Users join or create Sessions, which represent scheduled real-world meetups at physical venues like cafés, libraries, or coworking spaces.
+
+The system is designed for low-pressure co-presence, not social networking or messaging.
+
+🧱 Core Concept
+
+Session = the central unit of the system
+
+A session is a scheduled event where users meet in person to work or create together.
+
+Everything revolves around:
+
+users joining sessions
+showing up at physical venues
+optional collaboration, no forced interaction
+🔁 Core Data Flow
+User opens React app
+User selects interests (e.g., writing, coding)
+System shows nearby sessions or allows session creation
+User joins a session
+Session is tied to:
+venue (café/library/etc.)
+time window
+interest category
+User physically travels to venue
+User checks in using GPS validation
+Other users also check in → shared co-presence begins
+Users optionally work, collaborate, or simply co-exist
+🧭 System Architecture
+Frontend
+React (web or mobile)
+Responsibilities:
+authentication UI
+session discovery
+session creation/joining
+venue selection (map/list)
+GPS check-in
+Backend
+Spring Boot monolith API
+
+Modules:
+
+User Module
+auth, profile, interests
+Session Module (core)
+create session
+join session
+manage session lifecycle
+Matching Module
+match users by interest + location + time
+Venue Module
+cafés, libraries, coworking spaces
+geo-coordinates
+Check-in Module
+GPS-based presence verification
+Database (PostgreSQL)
+
+Core entities:
+
+Users
+Interests
+User_Interests
+Sessions
+Session_Participants
+Venues
+Checkins
+External Integrations
+Google Maps API (venue discovery + distance)
+JWT Auth (authentication)
+Push notifications (session reminders)
+🧠 Design Constraints
+No social feed
+No messaging system (optional later, but NOT MVP)
+No follower/friend graph
+No content posting system
+
+This is NOT a social media platform.
+
+🎯 MVP Scope
+
+Build only:
+
+User authentication
+Interest selection
+Session creation
+Session browsing (by interest + location)
+Join session
+Venue selection
+GPS check-in
+🔥 Key Product Principle
+
+The product is not about communication—it is about coordinated physical presence.
+
+🧪 Success Criteria
+
+The MVP is successful if:
+
+users can reliably find sessions
+users actually meet in person
+sessions lead to sustained co-working / co-creation behavior
+🧱 Suggested Tech Stack
+
+Frontend:
+
+React
+Axios / Fetch API
+Google Maps integration (optional)
+
+Backend:
+
+Spring Boot
+REST APIs
+JWT authentication
+
+Database:
+
+PostgreSQL
